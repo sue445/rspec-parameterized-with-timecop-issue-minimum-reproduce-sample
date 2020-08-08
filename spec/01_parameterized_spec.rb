@@ -1,8 +1,4 @@
 RSpec.context 'parameterized spec' do
-  before :each do
-    Timecop.freeze
-  end
-
   after :each do
     Timecop.return
   end
@@ -10,6 +6,8 @@ RSpec.context 'parameterized spec' do
   subject { Time.now }
 
   where(:time) do
+    Timecop.freeze
+
     [
       [Time.now],
     ]
